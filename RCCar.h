@@ -39,7 +39,7 @@ const int ping = 9;
 #define THROTTLE_LOW  1
 #define THROTTLE_MID  2
 #define THROTTLE_HIGH 3
-#define THROTTLE_MAX  4
+#define THROTTLE_MAX  3
 
 
 // bit wise register
@@ -51,10 +51,12 @@ class RCCar {
 public:
     RCCar();
     virtual ~RCCar();
+    void setup();
+    
     void getDistance();
     
     void driveNeutral();
-    void driveBreak();
+    void driveBreak(int delays = 0);
     void driveForward();
     void driveBackward();
     

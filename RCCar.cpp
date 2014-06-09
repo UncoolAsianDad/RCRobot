@@ -8,6 +8,9 @@
 #include "RCCar.h"
 
 RCCar::RCCar() {
+}
+
+void RCCar::setup() {
     
     iThrottle = 0;
 
@@ -24,7 +27,8 @@ RCCar::RCCar() {
     pinMode(steerSPEED, OUTPUT); // optional, we probably don't even need to hook this part up
     pinMode(steerA, OUTPUT);
     pinMode(steerB, OUTPUT);
-
+    
+    analogWrite(steerSPEED, 0xFF);
 
 }
 
@@ -54,9 +58,11 @@ void RCCar::driveNeutral() {
 }
 
 // lock the wheels
-void RCCar::driveBreak() {
+void RCCar::driveBreak(int delays) {
     digitalWrite(accelA, LOW);
     digitalWrite(accelB, LOW);
+    
+    delay(delays);
 }
 
 void RCCar::driveForward() {
@@ -139,6 +145,8 @@ void RCCar::report() {
     Serial.println();
 }
 
-void RCCar::throttle(int i) {
-    analogWrite(accelSPEED, map(i, 0, THROTTLE_MAX, 0, 255));
+void RCCar::throttle(int throttle) {
+    
+    throttle = throttle % THROTTLE_MAX;    
+    analogWrite(accelSPEED, map(throttle, THROTTLE_LOW, THROTTLE_MAX, 0, 255));
 }

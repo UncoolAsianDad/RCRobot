@@ -8,12 +8,13 @@ RCCar car;
 
 void setup() {
     Serial.begin(9600);
-
+    
+    car.setup();
 }
 
 void loop() {
     
-    car.throttle(THROTTLE_LOW);
+    car.throttle(THROTTLE_MID);
     car.driveForward();
     
     car.turnLeft(1000);
@@ -23,6 +24,9 @@ void loop() {
     car.center();
     
     car.throttle(THROTTLE_STOP);
+    car.driveBreak(1000);
+    car.driveNeutral();
+    
     
     delay(5000);
 }
