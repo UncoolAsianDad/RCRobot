@@ -6,7 +6,7 @@
 # Based on: http://playground.arduino.cc/Code/Netbeans
 
 COM_PORT = /dev/ttyUSB0
-BAUD_RATE = 57600
+#BAUD_RATE = 115200
 ARDUINO_VERSION = 105
 ARDUINO_BASE_DIR = /usr/share/arduino
 ARDUINO_CORE_DIR = ${ARDUINO_BASE_DIR}/hardware/arduino/cores/arduino
@@ -27,7 +27,7 @@ ARDUINO_PINS_DIR = ${ARDUINO_BASE_DIR}/hardware/arduino/variants/standard
 #ARDUINO_PINS_DIR = ${ARDUINO_BASE_DIR}/hardware/arduino/variants/mega
 
 # Arduino Duemilanove:
-#BAUD_RATE = 57600
+BAUD_RATE = 57600
 
 # Include the libraries that you want. This are subfolders of "arduino-1.0.4/libraries" folder:
 INCLUDE_LIBS=EEPROM;
